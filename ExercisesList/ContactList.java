@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class ContactList {
     public static void main(String[] args) {
         ArrayList<String> contacts = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         while (true) {
             System.out.println("\n-=-=-=-=Contact List-=-=-=-=-");
@@ -14,19 +14,19 @@ public class ContactList {
                     "[4] - View contact list\n" +
                     "[5] - Exit\n" +
                     "Choose an option:");
-            int opcao = scanner.nextInt();
-            scanner.nextLine();
+            int opcao = sc.nextInt();
+            sc.nextLine();
 
             switch (opcao) {
                 case 1:
                     System.out.print("Contact name: ");
-                    String name = scanner.nextLine();
+                    String name = sc.nextLine();
                     contacts.add(name);
                     System.out.println("Added contact!");
                     break;
                 case 2:
                     System.out.print("Name of the contact to be removed: ");
-                    String removeName = scanner.nextLine();
+                    String removeName = sc.nextLine();
                     boolean removed = contacts.remove(removeName);
                     if (removed) {
                         System.out.println("Contact removed!");
@@ -36,7 +36,7 @@ public class ContactList {
                     break;
                 case 3:
                     System.out.print("Name you want to search: ");
-                    String searchName = scanner.nextLine();
+                    String searchName = sc.nextLine();
                     boolean findName = contacts.contains(searchName);
                     if (findName) {
                         System.out.println("Contact found!");
