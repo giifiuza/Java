@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ContactList {
+public class Main {
     public static void main(String[] args) {
-        ArrayList<String> contacts = new ArrayList<>();
-        Scanner sc = new Scanner(System.in);
+        ArrayList<Integer> contacts = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
 
         while (true) {
             System.out.println("\n-=-=-=-=Contact List-=-=-=-=-");
@@ -14,35 +14,33 @@ public class ContactList {
                     "[4] - View contact list\n" +
                     "[5] - Exit\n" +
                     "Choose an option:");
-            int opcao = sc.nextInt();
-            sc.nextLine();
+            int opcao = scanner.nextInt();
+            scanner.nextLine();
 
             switch (opcao) {
                 case 1:
-                    System.out.print("Contact name: ");
-                    String name = sc.nextLine();
-                    contacts.add(name);
+                    System.out.print("Contact number: ");
+                    int number = scanner.nextInt();
+                    contacts.add(number);
                     System.out.println("Added contact!");
                     break;
                 case 2:
-                    System.out.print("Name of the contact to be removed: ");
-                    String removeName = sc.nextLine();
-                    boolean removed = contacts.remove(removeName);
-                    if (removed) {
-                        System.out.println("Contact removed!");
-                    } else {
-                        System.out.println("Contact not found!");
-                    }
+                    System.out.println("Which contact do you want remove: ");
+                    System.out.println(contacts);
+                    System.out.print("Number of the index contact to be removed: ");
+                    int index = scanner.nextInt() -1;
+                    contacts.remove(index);
+                    System.out.println("Contact removed!");
+
                     break;
                 case 3:
-                    System.out.print("Name you want to search: ");
-                    String searchName = sc.nextLine();
-                    boolean findName = contacts.contains(searchName);
-                    if (findName) {
-                        System.out.println("Contact found!");
+                    System.out.print("What number do you want to search: ");
+                    int searchNumber = scanner.nextInt();
+                    if(contacts.contains(searchNumber)){
+                        System.out.println("Contact found");
                         System.out.println(contacts);
-                    } else {
-                        System.out.println("Contact not found!");
+                    }else{
+                        System.out.println("Contact not found");
                     }
                     break;
                 case 4:
@@ -50,7 +48,7 @@ public class ContactList {
                         System.out.println("Empty contact list!");
                     } else {
                         System.out.println("Contact list:");
-                        for (String contact : contacts) {
+                        for (int contact : contacts) {
                             System.out.println(contacts);
                         }
                     }
